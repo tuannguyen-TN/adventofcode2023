@@ -4,13 +4,14 @@ def solve(string):
 
     p1, p2 = 0, len(string) - 1
 
-    while not(string[p1].isnumeric()):
+    while not (string[p1].isnumeric()):
         p1 += 1
 
-    while not(string[p2].isnumeric()):
+    while not (string[p2].isnumeric()):
         p2 -= 1
 
     return int(string[p1]) * 10 + int(string[p2])
+
 
 with open('input.txt', 'r') as f:
     lines = f.read()

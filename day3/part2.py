@@ -10,7 +10,8 @@ def solve(engine: list[str]) -> list[int]:
     def extract_right(pos: int, line_index: int) -> int:
         temp = ''
         i = pos
-        while i < len(engine[line_index]) and engine[line_index][i].isnumeric():
+        while i < len(
+                engine[line_index]) and engine[line_index][i].isnumeric():
             temp += engine[line_index][i]
             i += 1
         return int(temp)
@@ -20,7 +21,8 @@ def solve(engine: list[str]) -> list[int]:
         temp.append(engine[line_index][pos])
 
         p1, p2 = pos - 1, pos + 1
-        while (p1 >= 0 and engine[line_index][p1].isnumeric()) or (p2 < len(engine[line_index]) and engine[line_index][p2].isnumeric()):
+        while (p1 >= 0 and engine[line_index][p1].isnumeric()) or (
+                p2 < len(engine[line_index]) and engine[line_index][p2].isnumeric()):
             if engine[line_index][p1].isnumeric():
                 temp.insert(0, engine[line_index][p1])
                 p1 -= 1
@@ -28,7 +30,6 @@ def solve(engine: list[str]) -> list[int]:
             if engine[line_index][p2].isnumeric():
                 temp.append(engine[line_index][p2])
                 p2 += 1
-
 
         return int(''.join(temp))
 
@@ -46,7 +47,8 @@ def solve(engine: list[str]) -> list[int]:
             part_num += 1
 
         # right
-        if (pos + 1 < len(engine[line_index]) and engine[line_index][pos + 1].isnumeric()):
+        if (pos + 1 < len(engine[line_index])
+                and engine[line_index][pos + 1].isnumeric()):
             number = extract_right(pos + 1, line_index)
             nums.append(number)
             part_num += 1
@@ -82,7 +84,8 @@ def solve(engine: list[str]) -> list[int]:
                 part_num += 1
 
             # right
-            if (pos + 1 < len(engine[line_index]) and engine[line_index - 1][pos + 1].isnumeric()):
+            if (pos + 1 < len(engine[line_index])
+                    and engine[line_index - 1][pos + 1].isnumeric()):
                 number = extract_right(pos + 1, line_index - 1)
                 nums.append(number)
                 part_num += 1
@@ -96,7 +99,8 @@ def solve(engine: list[str]) -> list[int]:
                 part_num += 1
 
             # right
-            if (pos + 1 < len(engine[line_index]) and engine[line_index + 1][pos + 1].isnumeric()):
+            if (pos + 1 < len(engine[line_index])
+                    and engine[line_index + 1][pos + 1].isnumeric()):
                 number = extract_right(pos + 1, line_index + 1)
                 nums.append(number)
                 part_num += 1
@@ -115,8 +119,9 @@ def solve(engine: list[str]) -> list[int]:
 
     return res
 
+
 with open('input.txt', 'r') as f:
-# with open('small.txt', 'r') as f:
+    # with open('small.txt', 'r') as f:
     lines = f.read().split('\n')
 
 

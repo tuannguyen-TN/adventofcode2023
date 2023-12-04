@@ -3,7 +3,7 @@ def solve(string):
         return 0
 
     mappings = {
-        'zero':0,
+        'zero': 0,
         'one': 1,
         'two': 2,
         'three': 3,
@@ -48,6 +48,7 @@ def solve(string):
     return first_digit * 10 + last_digit
 
 # print(solve('xktoneighttwoqljrsctbzxxqjtwo1ftsjczrsevenzqcdxtnktwo'))
+
 
 with open('input.txt', 'r') as f:
     lines = f.read()

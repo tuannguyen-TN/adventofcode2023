@@ -1,5 +1,6 @@
 bag = {'red': 12, 'green': 13, 'blue': 14}
 
+
 def solve(game_info: str) -> int:
     game_id, game_stats = game_info.split(': ')
     game_id = game_id.split(' ')[1]
@@ -15,6 +16,7 @@ def solve(game_info: str) -> int:
     return int(game_id)
 
 # print(solve(input()))
+
 
 with open('input.txt', 'r') as f:
     lines = f.read().split('\n')

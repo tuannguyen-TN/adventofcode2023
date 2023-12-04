@@ -16,6 +16,7 @@ def solve(game_info: str) -> int:
 
 # print(solve(input()))
 
+
 with open('input.txt', 'r') as f:
     lines = f.read().split('\n')
 

@@ -1,5 +1,5 @@
 def solve(engine: list[str]) -> int:
-    special_characters = '`~!@#$%^&*()_-+=\{\}[]\|;:"<>?,/'
+    special_characters = '`~!@#$%^&*()_-+=\\{\\}[]\\|;:"<>?,/'
     total = 0
 
     def extract_number(start_pos: int, line_index: int) -> (int, int):
@@ -7,12 +7,14 @@ def solve(engine: list[str]) -> int:
         end_pos = start_pos
 
         # get the numbers
-        while end_pos < len(engine[line_index]) and engine[line_index][end_pos].isnumeric():
+        while end_pos < len(
+                engine[line_index]) and engine[line_index][end_pos].isnumeric():
             temp += engine[line_index][end_pos]
             end_pos += 1
 
         # check symbols from left and right
-        if (start_pos != 0 and engine[line_index][start_pos - 1] in special_characters) or (end_pos < len(engine[line_index]) and engine[line_index][end_pos] in special_characters):
+        if (start_pos != 0 and engine[line_index][start_pos - 1] in special_characters) or (
+                end_pos < len(engine[line_index]) and engine[line_index][end_pos] in special_characters):
             return (int(temp), end_pos - 1)
 
         # check symbols from previous and next lines
@@ -26,14 +28,14 @@ def solve(engine: list[str]) -> int:
                 try:
                     if engine[line_index - 1][i] in special_characters:
                         return (int(temp), end_pos - 1)
-                except:
+                except BaseException:
                     continue
 
             if line_index < len(engine):
                 try:
                     if engine[line_index + 1][i] in special_characters:
                         return (int(temp), end_pos - 1)
-                except:
+                except BaseException:
                     continue
 
         return (0, end_pos - 1)
@@ -50,8 +52,9 @@ def solve(engine: list[str]) -> int:
 
     return total
 
+
 with open('input.txt', 'r') as f:
-# with open('small.txt', 'r') as f:
+    # with open('small.txt', 'r') as f:
     lines = f.read().split('\n')
 
 print(solve(lines))
